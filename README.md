@@ -1,2 +1,2 @@
-# xdevs.github.io
+# xDevs
 hello world!
