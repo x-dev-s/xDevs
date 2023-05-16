@@ -5,18 +5,12 @@
 
 /******** HEADER ********/
 header{
-	position: relative;
-  	height: 450px;
-  	overflow: auto;
-  	background: black;  /* fallback for old browsers */  
-  	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/bg-blog3.jpg") repeat fixed;
-  	background-size: cover;
+	z-index: 9;
+	width: 100%;
 }
-
 #header-nav{
-	background: rgba(0, 0, 0, 0.4);
+	background: rgba(0, 0, 0, 1.0);
 }
-
 #logo{
 	width: 200px;
 	height: 75px;
@@ -27,60 +21,153 @@ li{
 }
 a{
 	text-decoration: none;
+}
+#sidebar a{
 	position: relative;
+	color: #AA1111;
 }
 
 .navbar-toggler{
 	font-size: 80%;
 }
 .navbar-toggler:hover{
-	border: 2px solid blue;
+	border: 2px solid #AA1111;
 }
-
-#nav-list{
-	margin-top: 50px;
-	vertical-align: middle;
-}
-#nav-list a{
-	color: blue;
+a.nav-link{
+	color: lightgray;
 	text-align: center;
 }
-#nav-list a:hover{
-	background-color: lightgray;
-	border-radius: 4px;
+#nav-list a:hover, #nav-list a:focus{
+	color: #AA1111;
+	font-size: 17px;
+	font-weight: bold;
 }
-
-.dropdown {
+#dropdown {
   position: relative;
-  display: inline-block;
+  z-index: 10;
 }
-.dropdown-content {
+#dropdown-content {
   display: none;
-  background-color: #f1f1f1;
-  width: 160px;
-  z-index: 1;
+  background-color: lightgray;
+  width: 200px;
+  right: 0;
   border-radius: 4px;
 }
-.dropdown-content a {
-  color: black;
-  padding: 8px 8px;
-  text-decoration: none;
+#dropdown-content a{
+  padding:0px 8px;
   display: block;
-  border-radius: 4px;
+  color: black;
 }
-.dropdown:hover{background-color: lightgray; border-radius: 4px}
+#dropdown-content h5{
+  padding: 0px 8px;
+  color: #AA1111;
+  font-weight: bold;
+}
+#dropdown-content>div:nth-child(2){margin-top: 16px}
+#searchbar, #searchbtn{
+	border-color: black;
+}
+.toSearch{
+	display: list-item;
+}
+div.d-flex:not(#subscribe>div,#wrapper){
+	margin: 0px 12px;
+}
+input{
+	border-color: #000;
+}
+input:focus, textarea:focus{
+	border-color: #0D6EFD;
+	outline: none;
+}
 /******** END HEADER ********/
 
 /******** HOME ********/
-#content{
-	background-color: lightgray;
+@media (min-width: 768px){
+	#wrapper{
+		height: 852px;
+	}
+	#main-content{
+		width: 80%;
+		padding-right: 24px;
+	}
+	#sidebar{
+		top: 0;
+		width: 20%;
+		position: sticky;
+		padding-left: 32px;
+	}
+	#sidenav {
+		margin: 24px 0px;
+		width: 20%;
+	  right: 0;
+	  overflow: auto;
+	}
+	div.content {
+	  margin-right: 25%;
+	}
+	#sidenav a {
+	  text-decoration: none;
+	  display: inline-flex;
+	}
+	.vl {
+	  border-left: 1px solid black;
+	  height: 100%;
+	  right: 20%;
+	  position: absolute;
+	}
 }
-/********END HOME ********/
+
+/******** HOME ********/
+
+/******** HOME-SNIPPET ********/
+#headline{
+	color: #AA1111;
+}
+#grid>div{
+	padding: 12px;
+	position: relative;
+}
+.tiles{
+	position: relative;
+}
+.tiles:hover, .tiles:focus{
+	box-shadow: 2px 2px 2px 2px #AA1111;
+}
+.inside-tiles{
+	border: 1px solid black;
+	height: 350px;
+}
+.blogText{
+	background-color: black;
+	opacity: .8;
+	height: 21%;
+	position: absolute;
+	bottom: 0;
+	margin: 0px 12px 12px 0px;
+	overflow: hidden;
+	color: lightgray;
+	padding: 5px;
+}
+/********END HOME-SNIPPET ********/
 
 /******** FOOTER ********/
+#ToTop{
+	border-radius: 50%;
+	height: 40px;
+	width: 40px;
+	border: 2px solid #AA1111;
+	color: #AA1111;
+	position: fixed;
+	right: 3%;
+	bottom: 3%;
+	font-size: 28px;
+	font-weight: bold;
+	display: none;
+}
 footer{
-	background-color: rgba(0, 0, 0, 0.85);
-	color: blue;
+	background-color: rgba(0, 0, 0, 1);
+	color: lightgray;
 }
 footer h2{
 	color: white;
@@ -93,8 +180,17 @@ footer>div>p:last-child{
 	padding-top: 5px;
 	opacity: 0.7;
 }
+section li a{
+	color: lightgray;
+}
+section li a:hover{
+	color: #AA1111;
+	font-weight: bold;
+	font-size: 17px;
+}
 ul{
 	padding: 0;
+	display: inline;
 }
 .links::after {
   	content: '';
@@ -104,7 +200,7 @@ ul{
   	height: 2px;
   	bottom: 0;
   	left: 0;
-  	background-color: blue;
+  	background-color: #AA1111;
   	transform-origin: bottom right;
   	transition: transform 0.15s ease;
 }
@@ -127,22 +223,11 @@ ul{
 	width: 100%;
 	height: 150px;
 }
-#commentSubmit{
-	width: 80px;
-	height: 40px;
-	color: white;
-	background-color: blue;
-	border-radius: 5px;
+#required{
+	display: none;
+	color: #AA1111;
+	font-weight: bold;
 }
-#commentSubmit:hover {
-	background-color: #09466f;
-}
-#middle{
-	height: 200px;
-	background-color: lightyellow;
-	position: relative;
-}
-
 #social{
 	text-align: center;
 }
@@ -153,17 +238,17 @@ ul{
 		height: 50px;
 		width: 140px;
 	}
+	#dropdown-content{display: block;width: 100%;border-radius: 0px;text-align: center;}
+	#dropdown-content>div>a{margin: 0px 15px;display: inline-flex;}
+	#droplink{color: #AA1111;font-size: 17px;font-weight: bold;}
 	#name, #email, #url{
 		width: 100%;
 	}
-	footer h2{
-		font-size: 7vw;
-		padding-top: 26px;
-	}
-	#first{
-		padding-top: 0;
-	}
-	h2.comment{
+
+	#main-content{width: 100%}
+	.inside-tiles, .inside-tiles>img{height: 270px}
+
+	h2.comment, #subscribe{
 		margin-top: 16px;
 	}
 	#checker, #comment-name{
@@ -175,28 +260,31 @@ ul{
 @media (min-width:576px) and (max-width:767px){
 	#logo{
 		height: 60px;
-		width: 155px;
+		width: 165px;
 	}
-	footer h2{
-		padding-top: 26px;
-	}
-	#first{
-		padding-top: 0;
-	}
-	h2.comment{
+	#dropdown-content{display: block;width: 100%;border-radius: 0px;text-align: center;}
+	#dropdown-content>div>a{margin: 0px 15px;display: inline-flex;}
+	#droplink{color: #AA1111;font-size: 17px;font-weight: bold;}
+
+	#main-content{width: 100%;}
+	.inside-tiles{height: 270px}
+	
+	h2.comment, #subscribe{
 		margin-top: 16px;
 	}
 }
 @media (min-width:768px) and (max-width:991px){
 	#logo{
 		height: 60px;
-		width: 155px;
+		width: 160px;
 	}
-	.dropdown-content{
+	#nav-list{
+		font-size: 14px;
+	}
+	#dropdown-content{
 		position: absolute;
-		width: 120px;
 	}
-	.dropdown:hover .dropdown-content {display: block;}
+	#dropdown:hover #dropdown-content {display: block;}
 	#checker{
 		float: left;
 		width: 100%;
@@ -207,14 +295,14 @@ ul{
 		height: 65px;
 		width: 170px;
 	}
-	.dropdown-content{
+	#dropdown-content{
 		position: absolute;
 	}
-	.dropdown:hover .dropdown-content {display: block;}
+	#dropdown:hover #dropdown-content {display: block;}
 }
 @media (min-width:1280px){
-	.dropdown-content{
+	#dropdown-content{
 		position: absolute;
 	}
-	.dropdown:hover .dropdown-content {display: block;}
+	#dropdown:hover #dropdown-content {display: block;}
 }
