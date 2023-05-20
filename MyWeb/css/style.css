@@ -22,11 +22,6 @@ li{
 a{
 	text-decoration: none;
 }
-#sidebar a{
-	position: relative;
-	color: #AA1111;
-}
-
 .navbar-toggler{
 	font-size: 80%;
 }
@@ -67,9 +62,6 @@ a.nav-link{
 #searchbar, #searchbtn{
 	border-color: black;
 }
-.toSearch{
-	display: list-item;
-}
 div.d-flex:not(#subscribe>div,#wrapper){
 	margin: 0px 12px;
 }
@@ -83,25 +75,31 @@ input:focus, textarea:focus{
 /******** END HEADER ********/
 
 /******** HOME ********/
+#main-content{position: relative;}
 @media (min-width: 768px){
-	#wrapper{
+	/*#wrapper{
 		height: 852px;
-	}
+	}*/
 	#main-content{
-		width: 80%;
+		width: 100%;
 		padding-right: 24px;
 	}
 	#sidebar{
 		top: 0;
-		width: 20%;
+		width: 100%;
+		height: 609px;
 		position: sticky;
+		overflow: auto;
 		padding-left: 32px;
+	}
+	#sidebar a{
+		color: #AA1111;
+		position: relative;
 	}
 	#sidenav {
 		margin: 24px 0px;
 		width: 20%;
 	  right: 0;
-	  overflow: auto;
 	}
 	div.content {
 	  margin-right: 25%;
@@ -109,6 +107,7 @@ input:focus, textarea:focus{
 	#sidenav a {
 	  text-decoration: none;
 	  display: inline-flex;
+	  padding: 1px;
 	}
 	.vl {
 	  border-left: 1px solid black;
@@ -124,15 +123,18 @@ input:focus, textarea:focus{
 #headline{
 	color: #AA1111;
 }
-#grid>div{
-	padding: 12px;
-	position: relative;
+#Blogs, #News{
+
 }
 .tiles{
 	position: relative;
+	padding: 6px;
 }
-.tiles:hover, .tiles:focus{
-	box-shadow: 2px 2px 2px 2px #AA1111;
+.tilesDesign{
+	padding: 6px;
+}
+.tilesDesign:hover, .tilesDesign:focus{
+	box-shadow: 2px 1px 1px 2px #AA1111;
 }
 .inside-tiles{
 	border: 1px solid black;
@@ -164,6 +166,7 @@ input:focus, textarea:focus{
 	font-size: 28px;
 	font-weight: bold;
 	display: none;
+	transition: 2s ease;
 }
 footer{
 	background-color: rgba(0, 0, 0, 1);
@@ -180,17 +183,14 @@ footer>div>p:last-child{
 	padding-top: 5px;
 	opacity: 0.7;
 }
-section li a{
+footer section>a{
 	color: lightgray;
+	display: table;
 }
-section li a:hover{
+footer section>a:hover{
 	color: #AA1111;
 	font-weight: bold;
 	font-size: 17px;
-}
-ul{
-	padding: 0;
-	display: inline;
 }
 .links::after {
   	content: '';
@@ -244,9 +244,8 @@ ul{
 	#name, #email, #url{
 		width: 100%;
 	}
-
-	#main-content{width: 100%}
-	.inside-tiles, .inside-tiles>img{height: 270px}
+	
+	.inside-tiles, .inside-tiles>img, #BlogNewsContent>img{height: 270px}
 
 	h2.comment, #subscribe{
 		margin-top: 16px;
@@ -265,9 +264,6 @@ ul{
 	#dropdown-content{display: block;width: 100%;border-radius: 0px;text-align: center;}
 	#dropdown-content>div>a{margin: 0px 15px;display: inline-flex;}
 	#droplink{color: #AA1111;font-size: 17px;font-weight: bold;}
-
-	#main-content{width: 100%;}
-	.inside-tiles{height: 270px}
 	
 	h2.comment, #subscribe{
 		margin-top: 16px;
@@ -298,11 +294,13 @@ ul{
 	#dropdown-content{
 		position: absolute;
 	}
+	#main-content{width: 80%;}
 	#dropdown:hover #dropdown-content {display: block;}
 }
 @media (min-width:1280px){
 	#dropdown-content{
 		position: absolute;
 	}
+	#main-content{width: 80%;}
 	#dropdown:hover #dropdown-content {display: block;}
 }

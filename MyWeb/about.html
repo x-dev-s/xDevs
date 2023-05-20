@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>How-Tos</title>
+  <link rel="icon" type="image/x-icon" href="images/LOGO3.png">
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
@@ -13,42 +14,41 @@
         <div class="container-fluid navbar-expand-md">
           <a href="index.html"><img id="logo" src="images/LOGO3.png" alt="logo"></a>
 
-              <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span>
+              <button id="navbarToggle" class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapsable-nav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span>
             </button>
 
-          <div class=" collapse navbar-collapse" id="navbarSupportedContent">
+          <div class="collapse navbar-collapse" id="collapsable-nav">
                   <ul id="nav-list" class="my-auto ms-auto navbar-nav">
                       <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
 
-                      <li class="nav-item"><a class="nav-link" href="latest.html">Latest</a></li>
-
-                      <li class="nav-item"><a class="nav-link" href="how-to.html">How Tos</a></li>
-                      
-                <li class="nav-item dropdown">
-                    <a class="nav-link" href="#">
-                      Topics</a>
-                    <div  class="dropdown-content mx-auto">
-                        <a href="tech.html">Technology</a>
-
-                        <a href="food.html">Food</a>
-
-                        <a href="lifestyle.html">LifeStyle</a>
-
-                        <a href="news.html">News</a>
-
-                        <a href="science.html">Science</a>
-
-                        <a href="health.html">Health</a>
+                      <li class="nav-item" id="dropdown">
+                    <a id="droplink" class="nav-link" href="#">
+                      Latest <span><img width="10px" src="images/down-arrows.png"></span></a>
+                    <div id="dropdown-content">
+                    <div class="mx-auto">
+                        <h5>BLOGS</h5>
+                      <a href="#">A</a>
+                      <a href="#">B</a>
+                      <a href="#">C</a>
+                    </div>
+                    <div class="mx-auto">
+                      <h5>NEWS</h5>
+                      <a href="#">A</a>
+                      <a href="#">B</a>
+                      <a href="#">C</a>
+                      </div>  
                     </div>
                 </li>
 
-                      <li class="nav-item"><a class="nav-link active" aria-current="page" href="about.html">About</a></li>
+                      <li class="nav-item"><a class="nav-link" href="#" onclick="$store.loadBlogs()">Blogs</a></li>
 
-                      <li class="mx-auto mt-1">
+                      <li class="nav-item"><a class="nav-link" href="#" onclick="$store.loadNews()">News</a></li>
+
+                      <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+
+                      <li class="ps-4 nav-item d-none d-md-flex">
+                <input class="Search form-control" onkeyup="Searching()" type="search" placeholder="Search" aria-label="Search">
                 <button class="float-end btn btn-outline-primary ms-1" type="submit">Search</button>
-                <div class ="col-md-8 float-end">
-                  <input class=" form-control" type="search" placeholder="Search" aria-label="Search">
-                </div>
               </li>
                     </ul>
 
@@ -56,6 +56,11 @@
         </div>
       </nav>
   </header>
+  <div class="my-3 nav-item d-flex d-md-none">
+    <input id="searchbar" onkeyup="Searching()" class="Search form-control" type="search" placeholder="Search" aria-label="Search">
+    <button class="ms-1 btn btn-outline-primary" type="submit">Search</button>
+  </div>
+
   <div id="content">
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>  
   </div>
@@ -63,42 +68,36 @@
   <footer class="panel-footer">
     <div class="container-fluid">
       <div class="row">
-      <section class="col-md-6 mt-5 mb-md-5">
-        <h2 id="first">
-          CATEGORIES
+      <section class="col-md-4 mt-3 mb-md-3">
+        <h2>
+          LATEST POSTS
         </h2>
-        <ul>
-          <li>
-            <a class="links" href="tech.html">Technology</a>
-          </li>
-          <li>
-            <a class="links" href="food.html">Food</a>
-          </li>
-          <li>
-            <a class="links" href="lifestyle.html">LifeStyle</a>
-          </li>
-          <li>
-            <a class="links" href="news.html">News</a>
-          </li>
-          <li>
-            <a class="links" href="science.html">Science</a>
-          </li>
-          <li>
-            <a class="links" href="health.html">Health</a>
-          </li>
-        </ul>
-        <h2>SUBSCRIBE FOR MORE</h2>
-        <div>
-          <div class ="float-start col-7 col-sm-4 col-md-8">
-            <input class="form-control" type="search" placeholder="Your Email Adress" aria-label="Subscribe">
-          </div>
-          <button class="btn btn-outline-primary ms-1" type="submit">Subscribe</button>
-        </div>
+        <a class="toSearch" href="#">A</a>
+        <a class="toSearch" href="#">B</a>
+        <a class="toSearch" href="#">C</a>
       </section>
 
-      <section class="col-md-6 mb-5 mt-md-5">
+      <section class="col-md-4 mt-3 mb-md-3">
+        <h2>
+          BLOGS
+        </h2>
+        <a class="toSearch" href="#">A</a>
+        <a class="toSearch" href="#">BOSS</a>
+        <a class="toSearch" href="#">C</a>
+      </section>
+
+      <section class="col-md-4 mt-3 mb-md-3">
+        <h2>
+          NEWS
+        </h2>
+        <a class="toSearch" href="#">A</a>
+        <a class="toSearch" href="#">B</a>
+        <a class="toSearch" href="#">C</a>
+      </section>
+
+      <section class="mt-md-5 col-md-6 mb-3 mt-md-3">
         <!-------Wrap------------>
-        <h2 class="comment">COMMENTS AND RESPOSNSES</h2>        
+        <h2 class="comment">COMMENTS</h2>       
         <!------------Form Start---------->
         <form action="" method="POST" id="commentform">
           <div id="comment-name" class="form-row">
@@ -107,7 +106,7 @@
           </div>
 
           <div id="comment-email" class="form-row">
-            <input type = "text" placeholder = "Mail (will not be published) (required)" name = "demail"  id = "email">
+            <input type = "text" placeholder = "Mail (will not be published) (required)" name = "email"  id = "email">
           </div>
 
           <div id="comment-url" class="form-row">
@@ -117,29 +116,39 @@
           <div id="comment-message" class="form-row">
             <textarea name = "comment" placeholder = "Message" id = "comment" ></textarea>
           </div>
+          <div id="required">Please fill all the required fields</div>
 
-          <button class="btn btn-outline-primary" type="submit">Submit</button>
+          <button id="post" class="btn btn-outline-primary" type="submit">Submit</button>
           <span id="checker" class="py-1 py-sm-0">
-            <input style="width: 20px" type="checkbox" value="1" name="subscribe" id="subscribe" checked="checked">
-            <b id>Notify me when new comments are added.</b>
+            <input style="width: 20" type="checkbox" value="1" checked="checked">
+            <b>Notify me when new comments are added.</b>
           </span>
         </form>
       </section>
+      <div id="subscribe" class="col-md-6 my-auto ps-md-5">
+        <h2 class="">SUBSCRIBE FOR MORE</h2>
+        <div class="d-flex">
+          <input class="form-control" type="text" placeholder="Your Email Address" aria-label="Subscribe">
+          <button class="btn btn-outline-primary ms-1" type="submit">Subscribe</button>
         </div>
-      </div>
+          </div>
+        </div>
+    </div>
+
+    <ul id="comments"></ul>
 
     <div id="social">
-      <hr style="color: white;">
+      <hr style="color: white; margin-top: 48px;">
       <p>Follow Us</p>
-      <a href="#"><img width="25px" src="../images/facebook.png"></a>
-      <a href="#"><img width="25px" src="../images/instagram.png"></a>
-      <a href="#"><img width="25px" src="../images/twitter.png"></a>
+      <a href="#"><img width="25" src="images/facebook.png" alt="Facebook"></a>
+      <a href="#"><img width="25" src="images/instagram.png" alt="Instagram"></a>
+      <a href="#"><img width="25" src="images/twitter.png" alt="Twitter"></a>
       <p>Copyright &#169; 2023. All rights reserved</p>
     </div>
   </footer>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="JavaScript/jquery-2.1.4.min.js"></script>
+<script src="JavaScript/bootstrap.min.js"></script>
+<script src="JavaScript/ajax-utils.js"></script>
+<script src="JavaScript/script.js"></script>
 </body>
 </html>

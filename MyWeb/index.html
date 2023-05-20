@@ -8,7 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
-<body>
+<body id="main">
 	<header>
 			<nav id="header-nav" class="navbar">
 				<div class="container-fluid navbar-expand-md">
@@ -40,9 +40,9 @@
         						</div>
      						</li>
 
-               				<li class="nav-item"><a class="nav-link" href="blog.html">Blogs</a></li>
+               				<li class="nav-item"><a class="nav-link" href="#" onclick="$store.loadBlogs()">Blogs</a></li>
 
-               				<li class="nav-item"><a class="nav-link" href="news.html">News</a></li>
+               				<li class="nav-item"><a class="nav-link" href="#" onclick="$store.loadNews()">News</a></li>
 
                				<li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
 
@@ -62,11 +62,11 @@
 	</div>
 
 	<div id="wrapper" class="d-flex position-relative">
-		<div id="main-content" class="my-4"></div>
+		<div id="main-content" class="my-md-4"></div>
 		<div class="d-none d-lg-block vl"></div>    
 		<div id="sidenav" class="d-none d-lg-block"></div>
 	</div>
-	<div id="test"></div>
+
 	<button id="ToTop"><span id="ToTop" class="d-block">^</span></button>
 
 	<span id="end"></span>
@@ -78,50 +78,29 @@
 				<h2>
 					LATEST POSTS
 				</h2>
-				<ul>
-					<li>
-						<a class="to" href="#">A</a>
-					</li>
-					<li>
-						<a class="to" href="#">B</a>
-					</li>
-					<li>
-						<a class="to" href="#">C</a>
-					</li>
-				</ul>
+				<a class="toSearch" href="#">A</a>
+				<a class="toSearch" href="#">B</a>
+				<a class="toSearch" href="#">C</a>
 			</section>
+
 			<section class="col-md-4 mt-3 mb-md-3">
 				<h2>
 					BLOGS
 				</h2>
-				<ul>
-					<li>
-						<a class="toSearch" href="#">A</a>
-					</li>
-					<li>
-						<a class="toSearch" href="#">BOSS</a>
-					</li>
-					<li>
-						<a class="toSearch" href="#">C</a>
-					</li>
-				</ul>
+				<a class="toSearch" href="#">A</a>
+				<a class="toSearch" href="#">BOSS</a>
+				<a class="toSearch" href="#">C</a>
 			</section>
+
 			<section class="col-md-4 mt-3 mb-md-3">
 				<h2>
 					NEWS
 				</h2>
-				<ul>
-					<li>
-						<a class="toSearch" href="#">A</a>
-					</li>
-					<li>
-						<a class="toSearch" href="#">B</a>
-					</li>
-					<li>
-						<a class="toSearch" href="#">C</a>
-					</li>
-				</ul>
+				<a class="toSearch" href="#">A</a>
+				<a class="toSearch" href="#">B</a>
+				<a class="toSearch" href="#">C</a>
 			</section>
+
 			<section class="mt-md-5 col-md-6 mb-3 mt-md-3">
 				<!-------Wrap------------>
 				<h2 class="comment">COMMENTS</h2>				
@@ -175,7 +154,6 @@
 	</footer>
 <script src="JavaScript/jquery-2.1.4.min.js"></script>
 <script src="JavaScript/bootstrap.min.js"></script>
-<script src="JavaScript/ajax-utils.js"></script>
 <script src="JavaScript/script.js"></script>
 </body>
 </html>
