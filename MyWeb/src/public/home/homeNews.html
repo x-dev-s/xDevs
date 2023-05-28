@@ -1,0 +1,10 @@
+<div class="tiles">
+  <div class="tilesDesign">
+    <a ui-sref="public.news({articlename: $ctrl.news.articlename})">
+      <div class="inside-tiles"><img width="100%" height="350px" src="images/{{$ctrl.news.articlename}}.jpg" alt="{{$ctrl.news.articlename}}">
+        <div class="blogText">{{$ctrl.news.blogContent}}</div> 
+      </div>   
+    </a>
+  </div>
+  <small>Posted on {{$ctrl.news.date}}</small>
+</div>
