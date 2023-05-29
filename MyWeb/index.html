@@ -62,6 +62,9 @@
                			</ul>
                		</div>
 				</div>
+				<div class="container-fluid d-none d-md-block">
+				<h4 id="headline">Welcome to our blog where fashion and technology collide, providing you with the latest insights and trends in electronics and apparel.</h4>
+				</div>
 			</nav>
 	</header>
 	<ul class="container-fluid mt-3 nav-item d-block d-md-none">
@@ -69,8 +72,11 @@
 			<input id="searchbar2" onkeyup="$store.Searching('2')" class="form-control" type="search" placeholder="Search" aria-label="Search">
 			<!-- <button class="ms-1 btn btn-outline-primary" type="submit">Search</button>	 -->
 		</li>
-		<li id="SearchContent2" class="position-absolute rounded d-block d-md-none"></li>
+		<li id="SearchContent2" class="rounded d-block d-md-none"></li>
 	</ul>
+	<div class="container-fluid d-block d-md-none">
+		<h6 id="headline">Welcome to our blog where fashion and technology collide, providing you with the latest insights and trends in electronics and apparel.</h6>
+	</div>
 
 	<ui-view></ui-view>
 	<button id="ToTop"><span>&#8593;</span></button>
@@ -78,37 +84,37 @@
 	<footer class="panel-footer">
 		<div class="container-fluid">
 		  <div class="row">
-			<section class="col-md-3 mt-3 mb-md-3">
-				<h2>
+			<section class="col-md-6 col-lg-3 mt-3 mb-md-3">
+				<h3>
 					LATEST POSTS
-				</h2>
+				</h3>
 				<a href="#">A</a>
 				<a href="#">B</a>
 				<a href="#">C</a>
 			</section>
 
-			<section class="col-md-3 mt-3 mb-md-3">
-				<h2>
+			<section class="col-md-6 col-lg-3 mt-3 mb-md-3">
+				<h3>
 					TOP RATED
-				</h2>
+				</h3>
 				<a href="#">A</a>
 				<a href="#">B</a>
 				<a href="#">C</a>
 			</section>
 
-			<section class="col-md-3 mt-3 mb-md-3">
-				<h2>
+			<section class="col-md-6 col-lg-3 mt-3 mb-md-3">
+				<h3>
 					BLOGS
-				</h2>
+				</h3>
 				<a href="#">A</a>
 				<a href="#">B</a>
 				<a href="#">C</a>
 			</section>
 
-			<section class="col-md-3 mt-3 mb-md-3">
-				<h2>
+			<section class="col-md-6 col-lg-3 mt-3 mb-md-3">
+				<h3>
 					NEWS
-				</h2>
+				</h3>
 				<a href="#">A</a>
 				<a href="#">B</a>
 				<a href="#">C</a>
@@ -154,13 +160,13 @@
 
 		<ul id="comments"></ul> -->
 
-		<div id="social" class="mt-5">
+		<div id="social" class="text-center mt-5">
 			<hr style="color: white; margin-top: 150px;">
 			<p>Follow Us</p>
 			<a href="#"><img width="25" src="images/facebook.png" alt="Facebook"></a>
 			<a href="#"><img width="25" src="images/instagram.png" alt="Instagram"></a>
 			<a href="#"><img width="25" src="images/twitter.png" alt="Twitter"></a><br>
-			<small>Copyright &#169; 2023. All rights reserved</small>
+			<small>Copyright &#169; 2023. All rights reserved | <a href="">Admin</a></small>
 		</div>
 	</footer>
 <script src="lib/jquery-3.6.4.min.js"></script>

@@ -14,9 +14,23 @@
 // });
 
 // $(function(){
-//   if (document.querySelector("loading").innerHTML === '') {
-//    $("ui-view, header, footer, ul.container-fluid").show();
-//   }
+//     var result;
+//     var p;
+
+//     if (window.performance.navigation) {
+//         result=window.performance.navigation;
+//         if (result==255){result=4} // 4 is my invention!
+//     }
+
+//     if (window.performance.getEntriesByType("navigation")){
+//        p=window.performance.getEntriesByType("navigation")[0].type;
+
+//        if (p=='navigate'){result=0}
+//        if (p=='reload'){result=1}
+//        if (p=='back_forward'){result=2}
+//        if (p=='prerender'){result=3} //3 is my invention!
+//     }
+//     console.log(result);
 // });
 
 
@@ -131,9 +145,20 @@ store.Searching = function(num){
   })
 };
 
-// store.HideSearchContent = function(num){
-//       document.getElementById("SearchContent" + num).innerHTML = "";
-// };
+document.onunload = function() {
+     console.log("The page is redirecting")
+};
+
+// const navigationType = 
+//     (window.performance.getEntriesByType('navigation')
+//         [0] as PerformanceNavigationTiming).type;
+
+// const isPageReload = navigationType === 'reload';
+// const isNavigation = navigationType === 'navigate';
+// const isBackForwarad = navigationType === 'back_forward';
+// const isPrerender = navigationType === 'prerender';
+
+// if (true) {}
 
 global.$store = store;
 })(window);

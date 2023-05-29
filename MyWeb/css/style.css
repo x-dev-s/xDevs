@@ -17,6 +17,12 @@
 }
 a{text-decoration: none}
 small{opacity: .8; font-size: 12px}
+h1{font-size: 2.4em}
+h2{font-size: 2.2rem}
+h3{font-size: 1.8rem}
+h4{font-size: 1.6rem}
+h5{font-size: 1.5rem}
+h6{font-size: 1.4rem}
 
 /******** HEADER ********/
 header{
@@ -26,7 +32,13 @@ header{
 #header-nav{
 	background-color: var(--color-primary);
 }
+#headline{
+	color: var(--color-light);
+	text-align: center;
+	margin-top: 180px;
+}
 #logo{
+	margin: 20px 0px;
 	width: 200px;
 	height: 75px;
 }
@@ -42,10 +54,11 @@ a.nav-link{
 	color: var(--color-light);
 	text-align: center;
 }
-.nav-item>a:hover, .nav-item>a:focus{
+.nav-item>a:hover{
 	color: var(--color-light);
 	font-size: 21px;
 }
+.nav-item>a:focus{color: white;}
 #dropdown {
   position: relative;
   z-index: 10;
@@ -64,14 +77,14 @@ a.nav-link{
   color: var(--color-dark);
 }
 #dropdown-content a:hover, #dropdown-content a:focus{
-	font-weight: bold;
+	color: var(--color-dark);
+	opacity: .5;
 	font-size: 17px;
 }
 #dropdown-content h5{
   padding: 0px 8px;
   margin: 0;
   color: var(--color-primary);
-  font-weight: bold;
 }
 #dropdown:hover #dropdown-content, #dropdown:focus #dropdown-content {display: block;}
 #dropdown-content>div:nth-child(2){margin-top: 16px}
@@ -82,17 +95,17 @@ input:focus, textarea:focus{
 	border-color: var(--color-success);
 	outline: none;
 }
-/******** END HEADER ********/
+/********************************************* END HEADER ************************************************/
 
-/************* COMMON *************/
+/********************************************* COMMON ************************************************/
 #loader{
-	width: 100%;
-	height: 100%;
+	width: 100vw;
+	height: 100vh;
 	background-color: var(--color-light);
 	position: fixed;
-	padding-top: 15%;
+	padding-top: 20%;
 	text-align: center;
-	z-index: 9;
+	z-index: 99;
 }
 .links::after {
 	content: '';
@@ -102,7 +115,7 @@ input:focus, textarea:focus{
 	height: 2px;
 	bottom: 0;
 	left: 0;
-	background-color: var(--color-light);
+	background-color: var(--color-secondary);
 	transform-origin: bottom right;
 	transition: transform 0.15s ease;
 }
@@ -114,26 +127,31 @@ input:focus, textarea:focus{
 	z-index: 10;
 	background-color: var(--color-dropdowns);
 	right: 0;
-	width: 240px;
+	width: 40vh;
 	max-height: 260px;
 	overflow: auto;
 }
 #SearchContent1 a, #SearchContent2 a{color: var(--color-dark);}
 #SearchContent2 a:hover, #SearchContent2 a:focus, #SearchContent1 a:hover, #SearchContent1 a:focus{
 	color: var(--color-dark);
+	opacity: .5;
 	font-size: 17px;
-	font-weight: bold;
 }
-/*#searchbar1{width: 220px}*/
+#searchbar1{width: 40vh}
 #searchbar2{border-color: #var(--color-success);}
-/************* END COMMON *************/
+/********************************************* END COMMON ************************************************/
 
-/************* PUBLIC *************/
-/******** HOME ********/
+/********************************************* PUBLIC ************************************************/
+/************************************ HOME ****************************************/
 #main-content{position: relative;}
 #main-view{padding: 0}
+
 @media (min-width: 992px){
-	#header-nav{height: 150px}
+	#header-nav{height: 350px}
+	.navbar-expand-md{
+		top: 0;
+		position: absolute;
+	}
 	#main-view{
 		width: 80%;
 		padding-right: 32px;
@@ -151,6 +169,7 @@ input:focus, textarea:focus{
 	}
 	#sidebar::-webkit-scrollbar-track {
 	  background: var(--color-secondary);
+	  border-radius: 5px;
 	}
 	#sidebar::-webkit-scrollbar-thumb {
 	  background: var(--color-primary); 
@@ -160,14 +179,14 @@ input:focus, textarea:focus{
 	  background: var(--color-primary-dark);
 	}
 	#sidebar a{
-		color: var(--color-light);
+		color: var(--color-secondary);
 		position: relative;
 	}
 	#sidenav {
 		padding: 24px 0px;
 		width: 20%;
 	  right: 0;
-	  background-color: var(--color-secondary);
+	  background-color: var(--color-light);
 	  border-left: 1px solid var(--color-dark);
 	}
 	#sidenav a {
@@ -175,13 +194,9 @@ input:focus, textarea:focus{
 	  padding: 1px;
 	}
 }
-/******** HOME ********/
+/************************************ END HOME ****************************************/
 
-/******** HOME-SNIPPET ********/
-#headline{
-	color: var(--color-primary);
-	font-size: 18px;
-}
+/************************************ HOME-SNIPPET ******************************************/
 .tiles{
 	padding: 6px;
 }
@@ -210,30 +225,26 @@ input:focus, textarea:focus{
 	color: var(--color-light);
 	padding: 0px 8px;
 }
-/********END HOME-SNIPPET ********/
-/************* END PUBLIC *************/
+/************************************END HOME-SNIPPET ***************************************/
+/******************************************* END PUBLIC ************************************************/
 
 /******** FOOTER ********/
 #ToTop{
 	border-radius: 50%;
-	height: 37px;
-	width: 37px;
-	border: 1px solid #fff;
+	height: 36px;
+	width: 36px;
+	border: 1px solid var(--color-dark);
 	background-color: transparent;
-	color: var(--color-light);
+	color: var(--color-dark);
 	position: fixed;
 	right: 3%;
 	bottom: 3%;
-	font-size: 22px;
+	font-size: 20px;
 	font-weight: bold;
 	display: none;
+	padding-bottom: 5px;
 }
-#ToTop span{
-	position: sticky;
-	bottom: 50%;
-	margin: auto;
-}
-#ToTop:hover, #ToTop:focus{background-color: var(--color-success); color: var(--color-dark); border: none}
+#ToTop:hover, #ToTop:focus{background-color: var(--color-primary); color: var(--color-light); border: none}
 footer{
 	background-color: var(--color-secondary);
 	color: var(--color-light);
@@ -243,7 +254,7 @@ footer section>a{
 	color: var(--color-light);
 }
 footer section>a:hover{
-	font-weight: bold;
+	opacity: .5;
 	font-size: 17px;
 	color: var(--color-light);
 }
@@ -267,16 +278,19 @@ footer section>a:hover{
 	color: var(--color-primary);
 	font-weight: bold;
 }
-#social{
-	text-align: center;
+#social small a{
+	color: black;
 }
+#social small a:hover{opacity: .5}
 /********END FOOTER ********/
 
 @media (max-width:575px){
+	#header-nav{position: relative;}
 	#logo{
 		height: 50px;
 		width: 140px;
 	}
+	#headline{font-size: 1.2rem; color: var(--color-primary); margin: 0}
 	#dropdown-content{display: none;width: 100%;border-radius: 0px;text-align: center;}
 	#dropdown-content>div>a{margin: 0px 15px;display: inline-flex;}
 	#SearchContent2{width: calc(100% - 24px); margin-right: 12px}
@@ -298,6 +312,7 @@ footer section>a:hover{
 
 
 @media (min-width:576px) and (max-width:767px){
+	#headline{color: var(--color-primary); margin: 0}
 	#logo{
 		height: 60px;
 		width: 165px;
@@ -316,7 +331,11 @@ footer section>a:hover{
 
 
 @media (min-width:768px) and (max-width:991px){
-	#header-nav{height: 150px}
+	#header-nav{height: 350px}
+	.navbar-expand-md{
+		top: 0;
+		position: absolute;
+	}
 	#logo{
 		height: 60px;
 		width: 160px;
