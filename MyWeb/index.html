@@ -7,9 +7,14 @@
 	<link rel="icon" type="image/x-icon" href="images/LOGO3.png">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300&family=Play&family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
 </head>
 <body ng-app = "store" ng-strict-di>
-	<loading class="h-100"></loading>
+	<loading></loading>
+
 	<header>
 			<nav id="header-nav" class="navbar">
 				<div class="container-fluid navbar-expand-md">
@@ -24,7 +29,7 @@
 
                				<li class="nav-item" id="dropdown">
         						<a onclick="$store.showDropdown()" id="droplink" class="nav-link" href="">
-          						Latest <span><img width="10px" src="images/down-arrows.png"></span></a>
+          						Latest <span><img width="8px" src="images/dropdown-arrow.png"></span></a>
         						<div id="dropdown-content">
     								<div class="mx-auto">
         								<h5>BLOGS</h5>
@@ -50,7 +55,7 @@
                				<div class="ps-4 nav-item d-none d-md-block position-relative">
 	               				<li class="d-flex">
 									<input id="searchbar1" onkeyup="$store.Searching('1')" class="form-control" type="search" placeholder="Search" aria-label="Search">
-									<button class="btn btn-outline-primary ms-1" type="submit">Search</button>
+									<!-- <button class="btn btn-outline-primary ms-1" type="submit">Search</button> -->
 								</li>
 								<div id="SearchContent1" class="rounded container-fluid position-absolute"></div>
 							</div>
@@ -62,20 +67,13 @@
 	<ul class="container-fluid mt-3 nav-item d-block d-md-none">
 		<li class="d-flex">
 			<input id="searchbar2" onkeyup="$store.Searching('2')" class="form-control" type="search" placeholder="Search" aria-label="Search">
-			<button class="ms-1 btn btn-outline-primary" type="submit">Search</button>	
+			<!-- <button class="ms-1 btn btn-outline-primary" type="submit">Search</button>	 -->
 		</li>
-		<li id="SearchContent2" class="w-100 container-fluid position-absolute rounded d-block d-md-none"></li>
+		<li id="SearchContent2" class="position-absolute rounded d-block d-md-none"></li>
 	</ul>
-		
-
-	
-
 
 	<ui-view></ui-view>
-
 	<button id="ToTop"><span>&#8593;</span></button>
-
-	<span id="end"></span>
 
 	<footer class="panel-footer">
 		<div class="container-fluid">
@@ -161,8 +159,8 @@
 			<p>Follow Us</p>
 			<a href="#"><img width="25" src="images/facebook.png" alt="Facebook"></a>
 			<a href="#"><img width="25" src="images/instagram.png" alt="Instagram"></a>
-			<a href="#"><img width="25" src="images/twitter.png" alt="Twitter"></a>
-			<p>Copyright &#169; 2023. All rights reserved</p>
+			<a href="#"><img width="25" src="images/twitter.png" alt="Twitter"></a><br>
+			<small>Copyright &#169; 2023. All rights reserved</small>
 		</div>
 	</footer>
 <script src="lib/jquery-3.6.4.min.js"></script>

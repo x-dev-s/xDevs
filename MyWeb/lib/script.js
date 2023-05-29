@@ -14,9 +14,9 @@
 // });
 
 // $(function(){
-//   document.querySelector("#Search2").addEventListener("focusout", function(event){
-//       document.getElementById("SearchContent2").innerHTML = "";
-//   })
+//   if (document.querySelector("loading").innerHTML === '') {
+//    $("ui-view, header, footer, ul.container-fluid").show();
+//   }
 // });
 
 
