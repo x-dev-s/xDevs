@@ -1,37 +1,22 @@
-// $(function () { // Same as document.addEventListener("DOMContentLoaded"...
+$(function(){
+    var result;
+    var p;
 
-//   // Same as document.querySelector("#navbarToggle").addEventListener("blur",...
-//   $("#navbarToggle").blur(function (event) {
-//     var screenWidth = window.innerWidth;
-//     if (screenWidth < 768) {
-//       $("#collapsable-nav").collapse('hide');
-//     }
-//   });
+    if (window.performance.navigation) {
+        result=window.performance.navigation;
+        if (result==255){result=4} // 4 is my invention!
+    }
 
-//   $("#navbarToggle").click(function (event) {
-//     $(event.target).focus();
-//   });
-// });
+    if (window.performance.getEntriesByType("navigation")){
+       p=window.performance.getEntriesByType("navigation")[0].type;
 
-// $(function(){
-//     var result;
-//     var p;
-
-//     if (window.performance.navigation) {
-//         result=window.performance.navigation;
-//         if (result==255){result=4} // 4 is my invention!
-//     }
-
-//     if (window.performance.getEntriesByType("navigation")){
-//        p=window.performance.getEntriesByType("navigation")[0].type;
-
-//        if (p=='navigate'){result=0}
-//        if (p=='reload'){result=1}
-//        if (p=='back_forward'){result=2}
-//        if (p=='prerender'){result=3} //3 is my invention!
-//     }
-//     console.log(result);
-// });
+       if (p=='navigate'){result=0}
+       if (p=='reload'){result=1}
+       if (p=='back_forward'){result=2}
+       if (p=='prerender'){result=3} //3 is my invention!
+    }
+    console.log(result);
+});
 
 
 (function(global){
@@ -61,17 +46,14 @@ function sidenavbar(){
 
 store.showDropdown = function(event){
   if (window.innerWidth < 768){
-    var element = document.querySelector("#dropdown-content");
     if (count === 0){
-      element.style.display = "block";
+      $("#dropdown-content").show();
       count++;
     }
     else{
-      element.style.display = "none";
+      $("#dropdown-content").hide();
       count--;
-    }
-    
-      
+    }  
   }
 }
 
@@ -79,6 +61,11 @@ document.addEventListener("scroll",
   function(event){
       //   document.querySelector("header").style.position = "fixed";
       //   document.querySelector("header").style.top = "0"
+
+    //Collapse TopNav
+    if(window.pageYOffset > 350 && window.innerWidth < 768){
+      $("#collapsable-nav").collapse('hide');   
+    }
 
     //SideNavBar
     if (window.innerWidth >= 992){
@@ -108,15 +95,18 @@ document.addEventListener("scroll",
     //Search Hide
     if (window.innerWidth >= 768 && document.getElementById("SearchContent1").innerHTML !== '') {
       document.getElementById("SearchContent1").innerHTML = '';
+      document.getElementById("SearchContent1").style.maxHeight = "0"
     }
     else if( window.innerWidth < 768 && document.getElementById("SearchContent2").innerHTML !== ''){
       document.getElementById("SearchContent2").innerHTML = '';
+      document.getElementById("SearchContent2").style.maxHeight = "0"
     }
   }
 );
 
 store.Searching = function(num){
   insertHtml("#SearchContent" + num, '')
+  document.getElementById("SearchContent"+num).style.maxHeight = "262px"
   let val = document.querySelector('#searchbar' + num).value
   val = val.toLowerCase();
   $.ajax({type: 'GET', url: SearchData, 
@@ -143,10 +133,6 @@ store.Searching = function(num){
       })                
     }
   })
-};
-
-document.onunload = function() {
-     console.log("The page is redirecting")
 };
 
 // const navigationType = 

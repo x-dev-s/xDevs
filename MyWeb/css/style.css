@@ -63,13 +63,19 @@ a.nav-link{
   position: relative;
   z-index: 10;
 }
-#droplink>div{font-size: 24px; padding-top: 3px}
+#droplink>div{font-size: 24px; padding-top: 3px;}
 #dropdown-content {
-  display: none;
+  visibility: hidden;
+  width: 19vw;
+  max-height: 0;
   background-color: var(--color-dropdowns);
-  width: 200px;
-  border-radius: 4px;
-  transition: 100ms ease;
+  border-radius: 5px;
+  transition: max-height .3s ease;
+}
+#dropdown-content h5{
+  padding: 0px 8px;
+  margin: 0;
+  color: var(--color-primary);
 }
 #dropdown-content a{
   padding:0px 8px;
@@ -81,12 +87,7 @@ a.nav-link{
 	opacity: .5;
 	font-size: 17px;
 }
-#dropdown-content h5{
-  padding: 0px 8px;
-  margin: 0;
-  color: var(--color-primary);
-}
-#dropdown:hover #dropdown-content, #dropdown:focus #dropdown-content {display: block;}
+#dropdown:hover #dropdown-content, #dropdown:focus #dropdown-content {visibility: visible; max-height: 260px;}
 #dropdown-content>div:nth-child(2){margin-top: 16px}
 div.d-flex:not(#subscribe>div,#wrapper){
 	margin: 0px 12px;
@@ -125,19 +126,22 @@ input:focus, textarea:focus{
 }
 #SearchContent1, #SearchContent2{
 	z-index: 10;
+	color: var(--color-primary-dark);
 	background-color: var(--color-dropdowns);
 	right: 0;
-	width: 40vh;
-	max-height: 260px;
+	width: 25vw;
+	max-height: 0;
 	overflow: auto;
+	transition: max-height .3s ease;
 }
 #SearchContent1 a, #SearchContent2 a{color: var(--color-dark);}
+#SearchContent2{width: 100%; margin-right: 12px; padding: 0px 12px}
 #SearchContent2 a:hover, #SearchContent2 a:focus, #SearchContent1 a:hover, #SearchContent1 a:focus{
 	color: var(--color-dark);
 	opacity: .5;
 	font-size: 17px;
 }
-#searchbar1{width: 40vh}
+#searchbar1{width: 25vw}
 #searchbar2{border-color: #var(--color-success);}
 /********************************************* END COMMON ************************************************/
 
@@ -226,6 +230,10 @@ input:focus, textarea:focus{
 	padding: 0px 8px;
 }
 /************************************END HOME-SNIPPET ***************************************/
+
+/*************************** BLOG & NEWS ***************************/
+#BlogNewsContent img{border: 1px solid var(--color-dark);}
+
 /******************************************* END PUBLIC ************************************************/
 
 /******** FOOTER ********/
@@ -285,16 +293,14 @@ footer section>a:hover{
 /********END FOOTER ********/
 
 @media (max-width:575px){
-	#header-nav{position: relative;}
 	#logo{
 		height: 50px;
 		width: 140px;
 	}
 	#headline{font-size: 1.2rem; color: var(--color-primary); margin: 0}
-	#dropdown-content{display: none;width: 100%;border-radius: 0px;text-align: center;}
+	#dropdown-content{width: 100%; border-radius: 0px; text-align: center;}
 	#dropdown-content>div>a{margin: 0px 15px;display: inline-flex;}
-	#SearchContent2{width: calc(100% - 24px); margin-right: 12px}
-	.inside-tiles, .inside-tiles>img, #BlogNewsContent>img, .SingleBlog{height: 275px}
+	.inside-tiles, .inside-tiles>img, #BlogNewsContent img, .SingleBlog{height: 275px}
 	.blogText{height: 26%}
 	
 	#name, #email, #url{
@@ -319,9 +325,8 @@ footer section>a:hover{
 	}
 	#dropdown-content{display: none;width: 100%;border-radius: 0px;text-align: center;}
 	#dropdown-content>div>a{margin: 0px 15px;display: inline-flex;}
-	#SearchContent2{width: calc(100% - 24px); margin-right: 12px}
 
-	.inside-tiles, .inside-tiles>img, #BlogNewsContent>img, .SingleBlog{height: 370px}
+	.inside-tiles, .inside-tiles>img, #BlogNewsContent img, .SingleBlog{height: 370px}
 	.blogText{height: 20%}
 
 	h2.comment, #subscribe{
@@ -346,7 +351,7 @@ footer section>a:hover{
 	#dropdown-content{
 		position: absolute;
 	}
-	.inside-tiles, .inside-tiles>img, #BlogNewsContent>img{height: 300px}
+	.inside-tiles, .inside-tiles>img, #BlogNewsContent img{height: 300px}
 	.SingleBlog{height: 370px}
 	#checker{
 		float: left;
@@ -377,6 +382,6 @@ footer section>a:hover{
 	#dropdown-content{
 		position: absolute;
 	}
-	.inside-tiles, .inside-tiles>img, #BlogNewsContent>img{height: 500px}
+	.inside-tiles, .inside-tiles>img, #BlogNewsContent img{height: 500px}
 	.SingleBlog{height: 800px}
 }
